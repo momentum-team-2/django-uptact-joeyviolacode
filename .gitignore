@@ -71,6 +71,8 @@ coverage.xml
 # Translations
 *.mo
 
+.vscode/
+
 # Scrapy stuff:
 .scrapy
 
