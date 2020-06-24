@@ -35,6 +35,13 @@
     </div>
     {% endif %}
 
+    {% if contact.birthday %}
+    <div class="flex">
+      <div class="pr2"><i class="icofont-ui-date"></i></div>
+      <div>{{ contact.birthday }}</div>
+    </div>
+    {% endif %}
+
     <p>
       <a href="{% url 'edit_contact' pk=contact.pk %}">Edit Contact</a><br>    
       <a class="red" href="{% url 'delete_contact' pk=contact.pk %}">Delete Contact</a>
