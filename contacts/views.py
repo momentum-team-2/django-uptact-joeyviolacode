@@ -21,6 +21,10 @@ def add_contact(request):
 
     return render(request, "contacts/add_contact.html", {"form": form})
 
+def show_contact(request, pk):
+    contact = get_object_or_404(Contact, pk=pk)
+    return render(request, "contacts/show_contact.html", {"contact": contact})
+
 
 def edit_contact(request, pk):
     contact = get_object_or_404(Contact, pk=pk)
