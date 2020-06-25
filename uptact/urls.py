@@ -23,6 +23,7 @@ urlpatterns = [
     path('', contacts_views.list_contacts, name='list_contacts'),
     path('contacts/add/', contacts_views.add_contact, name='add_contact'),
     path('contacts/<int:pk>', contacts_views.show_contact, name="show_contact"),
+    path('contacts/<int:pk>/notes/', contacts_views.add_note, name="add_note"),
     path('contacts/<int:pk>/edit/',
          contacts_views.edit_contact,
          name='edit_contact'),

@@ -39,7 +39,31 @@
 
     <p>
       <a href="{% url 'edit_contact' pk=contact.pk %}">Edit Contact</a><br>    
-      <a class="red" href="{% url 'delete_contact' pk=contact.pk %}">Delete Contact</a>
+      <a class="red" href="{% url 'delete_contact' pk=contact.pk %}">Delete Contact</a><br>
+      <a href="{% url 'list_contacts' %}">Back to List</a><br>    
     </p>
-  </div>
+    <div>
+        <div>
+            <h3>Notes</h3>
+            {% for note in contact.notes.all %}
+            <div>
+            <p>{{ note.text }}</p>
+            <p>{{ note.date }}</p>
+            </div>
+            {% endfor %}
+          <div>
+            <strong>
+              Add a Note
+            </strong>
+          </div>
+          <form action="{% url 'add_note' pk=contact.pk %}" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div>
+              <button type="submit">Add Note</button>
+            </div>
+          </form>
+        </div>
+    
+      </div>
   {% endblock %}
